@@ -23,8 +23,30 @@
 
 //////////////////////////////
 
+// const numberofFilms = +prompt('Сколько филмов вы уже посмотрели?', '');
 
-const numberofFilms = +prompt('Сколько фильмов вы уже мосмотрели?', '');
+// const personalMovieDB = {
+//     count: numberofFilms,
+//     movies: {},
+//     actors: {},
+//     genres: [],
+//     privat: false
+
+// };
+
+// const a = prompt('Один из последних просмотренных фильмов?', ''),
+//       b = prompt('На сколько оцените его?', ''),
+//       c = prompt('Один из последних просмотренных фильмов?',''),
+//       d = prompt('На сколько оцените его?', '');
+
+// personalMovieDB.movies [a] = b;
+// personalMovieDB.movies [c] = d;
+    
+// console.log(personalMovieDB);
+
+/////////////////////////////////////////////////////////////
+
+const numberofFilms = +prompt('Сколько фильмов ва уже посмотрели', '');
 
 const personalMovieDB = {
     count: numberofFilms,
@@ -32,15 +54,54 @@ const personalMovieDB = {
     actors: {},
     genres: [],
     privat: false
-
 };
+///////////////////////////////////////////////////////////////////////
+// let count = 0;
 
-const a = prompt('Один из последних просмотренных фильмов?', ''),
-      b = prompt('На сколько оцените его?', ''),
-      c = prompt('Один из последних просмотренных филмов?', ''),
-      d = prompt('На сколько оцените его?', '');
+// while (count < 2) {
+//     const a = prompt('Один из последних просмотренных фильмов?', ''),
+//           b = prompt('На сколько вы его оцените?', '');
+//     console.log(count);
+//     count++;
+// }                                           Первый цыкл                 
+////////////////////////////////////////////////////////////////////////
 
-personalMovieDB.movies[a] = b;
-personalMovieDB.movies[c] = d;
+// let count = 0;
+// do {
+//     const a = prompt('Один из последних просмотренных фильмов?', ''),
+//           b = prompt('На сколько вы его оцените?', '');
+//     console.log(count);
+//     count++;
+
+// }
+// while(count < 2);                                Второй цыкл
+                                                
+////////////////////////////////////////////////////////////////////////
+for (let i = 0; i < 2; i++){
+    const a = prompt('Один из последних просмотренных фильмов?', ''),
+          b = prompt('На сколько вы оцените его?', '');
+
+    if (a != null && b != null && a != '' && b != '' && a.length < 50) {
+        personalMovieDB.movies [a] = b;
+        console.log('done');
+    } else {
+        console.log('Error');
+        i--;
+    }
+
+}                                             //Третий цыкл
+////////////////////////////////////////////////////////////////////////
+
+if (personalMovieDB.count < 10){
+    console.log('Просмотрено давольно мало фильмов');
+} else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30){
+    console.log('Вы класический зритель');
+} else if (personalMovieDB.count >=30){
+    console.log('Вы киноман');
+} else {
+    console.log('Произошла ошибка');
+}
 
 console.log(personalMovieDB);
+
+//////////////////////////////////////////////////////////////
