@@ -314,4 +314,93 @@ if (personalMovieDB.count < 10){
 }
 
 console.log(personalMovieDB);
+///////////////////////////////////////////////////////////////////////
+
+let num = 20; 
+
+function showFirstMessage(text) {
+    console.log(text);
+    console.log(num);                          //Локалная достает переменую из глобальной выше это Замыкание функци 
+}                                              //function declaration
+
+showFirstMessage('Hello World');
+console.log(num);
+
+///////////////////////////////////////////////////////////////////////
+
+function calc(a, b) {
+    return (a + b);
+    console.log('Unreachable')                     //мертвый код не выполница
+}                                                  //function declaration
+
+console.log(calc(4, 3));
+console.log(calc(5, 6));
+console.log(calc(10, 6));
+
 ////////////////////////////////////////////////////////////////////////
+
+function ret () {
+    let num = 50;
+
+    //
+
+    return num;                                   //return выводит из локалного на глобалный 
+}                                                 //function declaration
+
+const anotherNum = ret();
+console.log(anotherNum);
+                                             //Функции работаю до того как она была уже вызвана 
+///////////////////////////////////////////////////////////////////////
+                                          
+const logger = function() {
+    console.log('Hello');
+};                                                 //function expression нужно ставить ( {}; ) 
+
+logger();
+
+///////////////////////////////////////////////////////////////////////
+
+const calca = (a, b) => {
+    console.log('1');                              //Стрелочная function ()=>
+    return a + b;
+};                         
+
+//////////////////////////////////////////////////////////////////////
+
+const str = "test";
+const arr = [1, 2, 4];
+
+console.log(str.length);                           //свойства пишутся через точку
+
+console.log(str.toUpperCase());                    //это метод верхнего регистра он возврашает новое значения
+console.log(str.toLowerCase());                    //это метот нижнего регистра он тоже возврашает новое значения
+console.log(str);
+
+const fruit = "Some fruit";
+console.log(fruit.indexOf("fruit"));               //это метод исползуется для определения есть ли искомое значения
+
+const logg = "Hello World";
+console.log(logg.slice(6, 11));                    //это метод вырежит слово с определёного места до определеного места 
+console.log(logg.substring(6, 11));                //это тоже самый метод
+console.log(logg.substr(6, 5));                    //это тоже самый метод но в конце прописывается сколко символов нужно выразить 
+
+///////////////////////////////////////////////////////////////////////
+                                        //Методы числа 
+const num = 12.9;
+console.log(Math.round(num));            //Метод для округления 
+
+const test = "12.2px";
+console.log(parseInt(test));              //метот преврашает из строки в целой число
+console.log(parseFloat(test));            //метод возврашает из числовой строки в обыч число
+
+////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
