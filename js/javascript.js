@@ -473,3 +473,283 @@ console.log(counter);
 
 ///////////////////////////////////////////////////////////////////////
 
+const arr = [1, 2, 3, 4, 5, 6];
+
+arr.forEach(function(item, i, arr) {
+    console.log(`${i}: ${item}: внутри массива ${arr}`);        
+});                                                      //кол бэк функция выполница строка определёной дествии
+
+
+// arr[99] = 0;
+// console.log(arr.length)                                //ленг свойтва состоить из последнего индекса плюс один 
+// console.log(arr);
+
+// arr.pop();
+// arr.push(7);
+
+// console.log(arr);
+
+// for (let i = 0; i < arr.length; i++) {
+//     console.log(arr[i]);
+// }
+
+// for (let value of arr) {                                   //такая конструкция работает с масиваподобными сушнастями 
+//     console.log(value);
+// }
+
+/////////////////////////////////////////////////////////////////////////////////
+
+const aar =[1, 10, 21, 0, 12, 11];
+aar.sort(compareNum);                                          //сортирует  
+console.log(aar);                               
+
+function compareNum(a, b) {
+    return a - b;
+}
+
+/////////////////////////////////////////////////////////////////////////////////
+
+let a = 5,                                                                
+    b = a;      
+
+b = b + 5;
+
+console.log(b);
+console.log(a);
+
+
+const obj = {
+    a = 5,
+    b = 1
+}; 
+
+const copy = obj;                                            //в этот обект кладется ссылка
+copy.a = 10;
+
+console.log(copy);
+console.log(obj);
+
+///////////////////////////////////////////////////////////////////////////////
+
+function copy(mainObj) {
+    let objCopy = {};
+
+    let key;
+    for (key in mainObj) {
+        objCopy[key] = mainObj [key];
+    }
+    return objCopy;
+}
+
+
+const numbers = {
+    a: 2,
+    b: 5,
+    c: {
+        x: 7,
+        y: 4
+    }
+};
+
+const newNumbers = copy(numbers);
+
+newNumbers.a = 10;                                                   //глубокая копия обекта
+newNumbers.c.x = 10;                                                 //поверхсная копия обекта
+console.log(newNumbers);
+console.log(numbers); 
+
+////////////////////////////////////////////////////////////////////////////
+
+const numbers1 = {
+    a: 2,
+    b: 5,
+    c: {
+        x: 7,
+        y: 4
+    }
+};
+
+const add = {
+    d: 17,
+    e: 20
+};
+
+// console.log(Object.assign(numbers1, add));
+const clone = Object.assign({}, add);
+clone.d = 20;
+
+console.log(add);
+console.log(clone);
+
+////////////////////////////////////////////////////////////////////////////
+
+const oldArray = ['a', 'b', 'c'];
+const newArray = oldArray.slice();
+
+newArray[1] = 'Timur';
+
+console.log(newArray);
+console.log(oldArray);
+
+///////////////////////////////////////////////////////////////////////////////
+
+const video = ['yotube', 'vimeo', 'rutube'],
+      blogs = ['wordpress', 'livejournal', 'blogger'],
+      internet = [...video, ...blogs, 'vk', 'facebook'];
+
+console.log(internet);
+
+////////////////////////////////////////////////////////////////////////////// 
+
+function log(a, b, c) {
+    console.log(a);
+    console.log(b);
+    console.log(c);
+}
+const num = [2, 5, 7];
+
+log(...num);
+
+///////////////////////////////////////////////////////////////////////////////
+
+const array = ["a", "b"];
+const newAarray = [...array];
+
+console.log(newAarray);
+
+
+const q = {
+    one: 1,
+    two: 2
+};
+
+const newObj = {...q};
+
+console.log(newObj);
+
+///////////////////////////////////////////////////////////////////////////////////
+
+const soldier = {
+    health: 400,
+    armor: 100
+};
+
+const jonh = { 
+    health: 100
+};
+const jonh = Object.create(soldier);                        //прототипная связ 
+
+// jonh.__proto__ = soldier;                                //старый вид записи 
+// Object.setPrototypeOf(jonh, soldier);                       //новый вид записи 
+
+
+console.log(jonh.armor);
+
+///////////////////////////////////////////////////////////////////
+
+// To string
+//1)
+console.log(typeof(String(null)));
+console.log(typeof(String(4)));
+
+//2)Канкатенация
+console.log(typeof(5 + ''));
+
+const num = 5;
+console.log("https://vk.com/catalog/" + num);
+
+const fontSize = 26 + 'px';
+
+//To Number
+//1)
+console.log(typeof(Number('4')));
+
+//2)Унарный плюс
+console.log(typeof(+'5'));
+
+//3) 
+console.log(typeof(parseInt("15px", 10)));
+
+let answ = +prompt("hello", "");
+
+//To boolean
+//0, '', null, undefined, NaN;   всегда будет преврашатся ( false ) 
+//1)нативный
+let switcher = null;
+
+if (switcher) {
+    console.log('Wocking...');
+}
+switcher = 1;
+
+if (switcher) {
+    console.log('Working...');
+}
+
+//2)логический тип данных
+console.log(typeof(Boolean('4')));
+
+//3)
+console.log(typeof(!!"44444"));
+
+/////////////////////////////////////////////////////////////////////////////
+
+// let x = 5; alert(x++);      // ответ 5
+// let x = 5; alert(++x);      //ответ 6
+
+//  console.log([] + false -null + true);  // не математической значение  "NaN"
+
+// let y = 1;  let x = y = 2; alert(x);   // ответ 2
+
+// console.log([] + 1 + 2);      // ответ строка "12"
+
+// alert("1" [0]);    //ответ 1
+
+// console.log(2 && 1 && null && 0 && undefined); //ответ null. Оператор && (и) запенается на лжи
+
+// console.log(!! (1 && 2) === (1 && 2));  //ответ false оператор !! (не) превратил значения в булиновае
+
+// alert( null || 2 && 3 || 4);  // ответ 3 оператор &&(и) в преоритете 
+
+// const a = [1,2,3]; 
+// const b = [1,2,3];
+// console.log(a == b);           //false не равно 
+
+// alert ( +"Infinity" );              //ответ Infinity 
+
+// console.log("Ёжик" > "яблоко");        //ответ false не равно 
+
+//оператов || (или) запенается в правде 
+// console.log(0 || "" || 2 || undefined || true || false);    // ответ 2 далше код не пройдет 
+
+///////////////////////////////////////////////////////////////////////////////////////
+
+const box = document.getElementById('box');           //достанет элемент через ID  
+
+console.log(box);
+
+////////////////////////////////////////////////////////////////
+
+const btns = document.getElementsByTagName('button');    // Достанет элемент через TAG
+
+console.log(btns[1]);
+
+/////////////////////////////////////////////////////////////
+
+const circles = document.getElementsByClassName('circle');     //достанет элемент Class нужно писать без точки 
+
+console.log(circles);
+
+/////////////////////////////////////////////////////////////////
+
+
+const hearts = document.querySelectorAll('.hearts');                //достаёт любой селектор из css нужно писать с точкой
+
+console.log(hearts);
+
+////////////////////////////////////////////////////////////////////////
+
+const oneHeart = document.querySelector('.heart');                   //этот селектор позволяет получить только один первый элемент
+console.log(oneHeart);
+
+///////////////////////////////////////////////////////////////////////////////////

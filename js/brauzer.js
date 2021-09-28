@@ -46,27 +46,6 @@
 
 ////////////////////////////////////////////////////////////////////
 
-let numberofFilms;
-
-function start() {
-    numberofFilms = +prompt('Сколько фильмов вы уже посмотрели', '');
-
-    while (numberofFilms == '' || numberofFilms == null || isNaN(numberofFilms)){
-        numberofFilms = +prompt('Сколько фильмов ва уже посмотрели', '');
-    }
-
-}
-
-start();
-
-const personalMovieDB = {
-    count: numberofFilms,
-    movies: {},
-    actors: {},
-    genres: [],
-    privat: false
-};
-
 // let count = 0;
 
 // while (count < 2) {
@@ -86,11 +65,25 @@ const personalMovieDB = {
 
 // }
 // while(count < 2);                                Второй цыкл
-                                                
-function rememberMyFilms() {       
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+const personalMovieDB = {
+    count: 0,
+    movies: {},
+    actors: {},
+    genres: [],
+    privat: false,
+    start: function() {
+        personalMovieDB.count = +prompt('Сколько фильмов вы уже посмотрели', '');
+        while (personalMovieDB.count == '' || personalMovieDB.count == null || isNaN(personalMovieDB.count)){
+        personalMovieDB.count = +prompt('Сколько фильмов ва уже посмотрели', '');
+        }
+    },
+    rememberMyFilms: function() {       
     for (let i = 0; i < 2; i++){
         const a = prompt('Один из последних просмотренных фильмов?', ''),        //Третий цыкл
-            b = prompt('На сколько вы оцените его?', '');
+              b = prompt('На сколько вы оцените его?', '');
 
         if (a != null && b != null && a != '' && b != '' && a.length < 50) {
             personalMovieDB.movies [a] = b;
@@ -99,38 +92,59 @@ function rememberMyFilms() {
             console.log('Error');
             i--;
         }
+    }    
 
-    } 
-}
-rememberMyFilms();
-                                           
-function detectPersonalLevel() {
-    if (personalMovieDB.count < 10){
-        console.log('Просмотрено давольно мало фильмов');
-    } else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30){
-        console.log('Вы класический зритель');
-    } else if (personalMovieDB.count >=30){
-        console.log('Вы киноман');
-    } else {
-        console.log('Произошла ошибка');
-    }
-}
-detectPersonalLevel();
-
-function showMyDB(hidden) {
-    if (!hidden) {
-        console.log(personalMovieDB);
-    }
-}
-showMyDB(personalMovieDB.privat);
-
-function writeYourGenres() {
+},
+        detectPersonalLevel:function () {
+        if (personalMovieDB.count < 10){
+            console.log('Просмотрено давольно мало фильмов');
+        } else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30){
+            console.log('Вы класический зритель');
+        } else if (personalMovieDB.count >=30){
+            console.log('Вы киноман');
+        } else {
+            console.log('Произошла ошибка');
+        }
+    },
+        showMyDB: function(hidden) {
+        if (!hidden) {
+            console.log(personalMovieDB);
+        }
+    },
+    toggleVisibleMyDB: function() {
+        if (personalMovieDB.privat) {
+            personalMovieDB.privat = false;
+        } else {
+            personalMovieDB.privat = true;
+        }
+    },
+        writeYourGenres: function() {
     for (let i = 1; i <= 3; i++){
-        const genre = prompt(`Ваш любимый жанр по номером ${i}`);
-        personalMovieDB.genres[i - 1] = genre;
-    }
-} 
-writeYourGenres();
+        let genre = prompt(`Ваш любимый жанр по номером ${i}`);
+
+        if (genre === '' || genre == null) {
+            console.log('Вы ввули некоректные данные или не ввели их вовше');
+            i--;
+        } else{
+            personalMovieDB.genres[i - 1] = genre;
+
+        }
+
+        } 
+
+        personalMovieDB.genres.forEach((item, i) =>{
+            console.log(`Любимый жанр ${i + 1} - это ${item}`);
+
+        });
+    } 
+
+};
 
 ///////////////////////////////////////////////////////////////////
 
+const str =  prompt("", "");
+const products = str.split(", ");                                       //разделили ту строку которую вели
+products.sort();                                                        //сортирует елементы по альфавиту
+console.log(products.join(';'));                                        //склейл обратно в троку масив с точка запитой
+
+//////////////////////////////////////////////////////////////////////////////////////
