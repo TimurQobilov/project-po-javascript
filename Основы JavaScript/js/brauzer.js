@@ -280,3 +280,54 @@ for (let node of document.body.childNodes){
     console.log(node);
 
 }    //перебераем всех чайл нодов и избавитса от всех текстовых нодов полусаем их текстовых свойсть или названи 
+
+
+
+//mobile 
+
+// touchstart  при косание этого элемента 
+// touchmove  при косани этого элемента двигаетса по ниму 
+// touchend  как только оторвалса при косание к этому элементу 
+// touchenter кода ведем и зашёл за пределы этого элемента 
+// touchleave когда начал скалзить и отошёл от этого элемента 
+// touchcancel точка сокраснавения больше не регистрируетса на элементе
+// touches     выдает всех палцев которые займодействует с экраном телефона 
+// targetTouches  если интересно все палсы займодействуют с этим элементом 
+// changedTouches это список пальцев которые участвуют в текушем сообытии 
+
+
+window.addEventListener('DOMContentLoaded', () => {
+    const box = document.querySelector('.box');
+
+    box.addEventListener('touchstart', (e) => {
+        console.log('Start');
+        console.log(e.touches);
+        console.log(e.targetTouches);
+    });
+
+    box.addEventListener('touchmove', (e) => {
+        console.log('Move');
+        console.log(e.targetTouches [0].pageX);
+    });
+
+    box.addEventListener('touchend', (e) => {
+        console.log('End');
+    });
+
+});
+
+//script поместить через javascript
+const script = document.createElement('script');
+script.src ="js/javascript.js";
+document.body.append(script);
+
+//подключил через функцию 
+function loadScript (src) {
+    const script = document.createElement('script');
+    script.src = src;
+    script.async = false;                                     // чтобы не задерживалса при загрузке скрипта 
+    document.body.append(script);
+}
+
+loadScript("js/javascript.js");
+loadScript("js/brauzer.js");

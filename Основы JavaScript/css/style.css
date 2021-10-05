@@ -1,4 +1,4 @@
-.box {
+/* .box {
     width: 150px;
     height: 150px;
     background-color: red;
@@ -103,4 +103,15 @@ button:hover {
 a {
   display: block;
   margin-top: 30px;
+} */
+
+
+/* mobile */
+body {
+  height: 1000px;
+}
+.box {
+  width: 150px;
+  height: 100px;
+  background-color: red;
 }
