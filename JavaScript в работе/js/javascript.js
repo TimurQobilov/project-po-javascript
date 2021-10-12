@@ -1,3 +1,5 @@
+
+
 const now = new Date();                           //Получил дату 
 console.log(now);
 // Это методы геторы 
